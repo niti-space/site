@@ -14,6 +14,12 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  LOCATION: ${{ vars.LOCATION }}
+  LOCATION_GOOGLE_MAP: ${{ vars.LOCATION_GOOGLE_MAP }}
+  TG_ADMIN_USERNAME: ${{ vars.TG_ADMIN_USERNAME }}
+  DIKIDI_ID: ${{ vars.DIKIDI_ID }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
