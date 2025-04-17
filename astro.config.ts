@@ -1,6 +1,10 @@
 import { defineConfig, envField } from "astro/config";
 
+const SITE_URL = process.env.SITE_URL || "https://niti-space.github.io";
+
 export default defineConfig({
+  site: SITE_URL,
+  base: "site",
   build: {
     assets: "static",
   },
@@ -29,13 +33,13 @@ export default defineConfig({
       LOCATION: envField.string({
         context: "client",
         access: "public",
-        default: ""
+        default: "",
       }),
       LOCATION_GOOGLE_MAP: envField.string({
         context: "client",
         access: "public",
         url: true,
-        default: ""
+        default: "",
       }),
     },
   },
