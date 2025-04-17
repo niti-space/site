@@ -1,16 +1,47 @@
 ---
+// import "../styles/awsm.css";
+import "../styles/main.css";
+import {
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  LOCATION,
+  LOCATION_GOOGLE_MAP,
+  DIKIDI_ID,
+  TG_ADMIN_USERNAME,
+} from "astro:env/client";
 
+const siteName = SITE_NAME || "НИТЬ";
+const siteDescription =
+  SITE_DESCRIPTION ||
+  "Пространство психологической поддержки и личностного развития";
+const appointmentURL = `https://dikidi.net/${DIKIDI_ID}`;
+const contactURL = `https://t.me/${TG_ADMIN_USERNAME}`;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{siteName}</title>
+  </head>
+  <body>
+    <header>
+      <h1>{siteName}</h1>
+      <p data-role="description">{siteDescription}</p>
+    </header>
+    <main>
+      <p data-role="location">
+        <a href={LOCATION_GOOGLE_MAP}>{LOCATION}</a>
+      </p>
+      <p data-role="appointment">
+        <a href={appointmentURL}>Забронировать кабинет</a>
+      </p>
+      <p data-role="contact">
+        <a href={contactURL} target="_blank" rel="noopener"
+          >Связаться с администратором в телеграме</a
+        >
+      </p>
+    </main>
+  </body>
 </html>

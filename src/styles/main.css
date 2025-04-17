@@ -1,0 +1,48 @@
+:root {
+    --background-color: #A7BFA3;
+    --foreground-color: #F5D87C;
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Oxygen, Cantarell, sans-serif;
+}
+
+html {
+    font-size: 100%;
+    background: var(--background-color);
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-ligatures: common-ligatures contextual;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+header {
+    margin: 0 0 2rem 0;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -.1ex;
+    color: var(--foreground-color);
+    font-size: 6em;
+    line-height: 1;
+    margin: 0;
+}
+
+p[data-role="location"]:before {
+    content: "📍";
+}
+
+p[data-role="appointment"]:before {
+    content: "👉";
+}
+
+p[data-role="contact"]:before {
+    content: "📞";
+}
