@@ -15,6 +15,9 @@ permissions:
   id-token: write
 
 env:
+  ORG_NAME: ${{ github.repository_owner }}
+  SITE_FQDN: ${{ vars.SITE_FQDN }}
+  SITE_BASE_PATH: ${{ vars.SITE_BASE_PATH }}
   LOCATION: ${{ vars.LOCATION }}
   LOCATION_GOOGLE_MAP: ${{ vars.LOCATION_GOOGLE_MAP }}
   TG_ADMIN_USERNAME: ${{ vars.TG_ADMIN_USERNAME }}
