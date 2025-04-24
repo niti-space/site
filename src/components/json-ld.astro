@@ -1,0 +1,52 @@
+---
+import { ORG_NAME, ORG_DESCRIPTION, ORG_ADDRESS_LAT } from "astro:env/client";
+
+const url = import.meta.env.SITE;
+const socialUsername = "niti_caring_space";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: ORG_NAME || "НИТЬ",
+  url: url,
+  logo: `${url}/logo.png`,
+  description:
+    ORG_DESCRIPTION ||
+    "Пространство психологической поддержки и личностного развития",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: ORG_ADDRESS_LAT,
+    addressLocality: "Belgrade",
+    addressRegion: "Belgrade",
+    postalCode: "11000",
+    addressCountry: { "@type": "Country", name: "Serbia" },
+  },
+  sameAs: [
+    `https://www.instagram.com/${socialUsername}`,
+    `https://t.me/@${socialUsername}`,
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Аренда кабинетов",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Аренда кабинета для индивидуальной терапии",
+          description: "Полностью оснащенные звуконепроницаемый кабинеты",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Аренда кабинета для групповой терапии",
+          description: "Полностью оснащенные звуконепроницаемый кабинеты",
+        },
+      },
+    ],
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -1,19 +1,20 @@
 ---
-// import "../styles/awsm.css";
 import "../styles/main.css";
 import {
   SITE_NAME,
   SITE_DESCRIPTION,
-  LOCATION,
-  LOCATION_GOOGLE_MAP,
+  ORG_ADDRESS_CYR,
+  ORG_ADDRESS_GMAP_URL,
   DIKIDI_ID,
   TG_ADMIN_USERNAME,
 } from "astro:env/client";
+import JsonLD from "../components/json-ld.astro";
 
 const siteName = SITE_NAME || "НИТЬ";
 const siteDescription =
   SITE_DESCRIPTION ||
-  "Пространство психологической поддержки и личностного развития";
+  "Пространство психологической поддержки и личностного развития в Белграде";
+const siteURL = import.meta.env.SITE;
 const appointmentURL = `https://dikidi.net/${DIKIDI_ID}`;
 const contactURL = `https://t.me/${TG_ADMIN_USERNAME}`;
 ---
@@ -22,8 +23,11 @@ const contactURL = `https://t.me/${TG_ADMIN_USERNAME}`;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{siteName}</title>
+    <meta name="description" content={siteDescription} />
+    <link rel="canonical" href={siteURL} />
+    <JsonLD />
   </head>
   <body>
     <header>
@@ -32,7 +36,7 @@ const contactURL = `https://t.me/${TG_ADMIN_USERNAME}`;
     </header>
     <main>
       <p data-role="location">
-        <a href={LOCATION_GOOGLE_MAP}>{LOCATION}</a>
+        <a href={ORG_ADDRESS_GMAP_URL}>{ORG_ADDRESS_CYR}</a>
       </p>
       <p data-role="appointment">
         <a href={appointmentURL}>Забронировать кабинет</a>

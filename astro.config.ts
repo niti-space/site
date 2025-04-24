@@ -1,8 +1,10 @@
 import { defineConfig, envField } from "astro/config";
 
-const ORG_NAME = process.env.ORG_NAME;
-const SITE_FQDN = process.env.SITE_FQDN || `${ORG_NAME}.github.io`;
-const SITE_BASE_PATH = process.env.SITE_BASE_PATH;
+const {
+  SITE_REPOSITORY_OWNER = "niti-space",
+  SITE_FQDN = `${SITE_REPOSITORY_OWNER}.github.io`,
+  SITE_BASE_PATH,
+} = process.env;
 
 export default defineConfig({
   site: `https://${SITE_FQDN}`,
@@ -22,6 +24,32 @@ export default defineConfig({
         access: "public",
         default: "",
       }),
+      ORG_NAME: envField.string({
+        context: "client",
+        access: "public",
+        default: "",
+      }),
+      ORG_DESCRIPTION: envField.string({
+        context: "client",
+        access: "public",
+        default: "",
+      }),
+      ORG_ADDRESS_CYR: envField.string({
+        context: "client",
+        access: "public",
+        default: "",
+      }),
+      ORG_ADDRESS_LAT: envField.string({
+        context: "client",
+        access: "public",
+        default: "",
+      }),
+      ORG_ADDRESS_GMAP_URL: envField.string({
+        context: "client",
+        access: "public",
+        url: true,
+        default: "",
+      }),
       TG_ADMIN_USERNAME: envField.string({
         context: "client",
         access: "public",
@@ -31,17 +59,6 @@ export default defineConfig({
         context: "client",
         access: "public",
         default: 0,
-      }),
-      LOCATION: envField.string({
-        context: "client",
-        access: "public",
-        default: "",
-      }),
-      LOCATION_GOOGLE_MAP: envField.string({
-        context: "client",
-        access: "public",
-        url: true,
-        default: "",
       }),
     },
   },

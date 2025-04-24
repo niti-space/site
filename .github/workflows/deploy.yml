@@ -15,13 +15,16 @@ permissions:
   id-token: write
 
 env:
-  ORG_NAME: ${{ github.repository_owner }}
+  SITE_REPOSITORY_OWNER: ${{ github.repository_owner }}
   SITE_FQDN: ${{ vars.SITE_FQDN }}
   SITE_BASE_PATH: ${{ vars.SITE_BASE_PATH }}
-  LOCATION: ${{ vars.LOCATION }}
-  LOCATION_GOOGLE_MAP: ${{ vars.LOCATION_GOOGLE_MAP }}
   TG_ADMIN_USERNAME: ${{ vars.TG_ADMIN_USERNAME }}
   DIKIDI_ID: ${{ vars.DIKIDI_ID }}
+  ORG_NAME: ${{ vars.ORG_NAME }}
+  ORG_DESCRIPTION: ${{ vars.ORG_DESCRIPTION }}
+  ORG_ADDRESS_CYR: ${{ vars.ORG_ADDRESS_CYR }}
+  ORG_ADDRESS_LAT: ${{ vars.ORG_ADDRESS_LAT }}
+  ORG_ADDRESS_GMAP_URL: ${{ vars.ORG_ADDRESS_GMAP_URL }}
 
 jobs:
   build:
