@@ -1,13 +1,9 @@
 import { defineConfig, envField } from "astro/config";
 
-const {
-  SITE_REPOSITORY_OWNER = "niti-space",
-  SITE_FQDN = `${SITE_REPOSITORY_OWNER}.github.io`,
-  SITE_BASE_PATH,
-} = process.env;
+const { SITE_BASE_PATH } = process.env;
 
 export default defineConfig({
-  site: `https://${SITE_FQDN}`,
+  site: 'https://niti-space.github.io',
   ...(SITE_BASE_PATH ? { base: SITE_BASE_PATH } : {}),
   build: {
     assets: "static",
